@@ -2,17 +2,36 @@ version: 2
 
 models:
   - name: stg_classic_models__customers
-    description: Staging model for customer records from the classic_models customers source.
+    description: Customer dimension staging model with cleaned customer identity, contact, geographic, and account limit fields from the `classic_models.customers` source.
     columns:
       - name: customer_number
         description: Primary key for each customer.
+        data_tests:
+          - unique
+          - not_null
       - name: customer_name
-        description: Full customer account name.
-      - name: last_name
-        description: Customer contact last name.
-      - name: first_name
-        description: Customer contact first name.
+        description: Customer account name.
+      - name: customer_last_name
+        description: Last name of the primary customer contact.
+      - name: customer_first_name
+        description: First name of the primary customer contact.
+      - name: phone
+        description: Primary phone number for the customer account.
+      - name: address_line1
+        description: First line of the customer street address.
+      - name: address_line2
+        description: Second line of the customer street address.
+      - name: city
+        description: City of the customer billing address.
+      - name: state
+        description: State or province of the customer billing address.
+      - name: postal_code
+        description: Postal code of the customer billing address.
+      - name: country
+        description: Country of the customer billing address.
       - name: sales_rep_employee_number
-        description: Employee number for the assigned sales representative.
-      - name: customer_email
-        description: Customer contact email address.
+        description: Employee number of the sales representative assigned to the customer.
+      - name: credit_limit
+        description: Credit limit assigned to the customer account.
+      - name: _sync_date
+        description: Timestamp when the record was last synchronized into the source system.

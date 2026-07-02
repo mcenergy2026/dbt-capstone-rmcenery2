@@ -2,13 +2,28 @@ version: 2
 
 models:
   - name: stg_classic_models__offices
-    description: Staging model for office records from the classic_models offices source.
+    description: Office staging model with office location, contact, territory, and source sync metadata from `classic_models.offices`.
     columns:
       - name: office_code
         description: Primary key for each office.
+        data_tests:
+          - unique
+          - not_null
       - name: city
         description: City where the office is located.
+      - name: phone
+        description: Primary phone number for the office.
+      - name: address_line1
+        description: First line of the office street address.
+      - name: address_line2
+        description: Second line of the office street address.
+      - name: state
+        description: State or province where the office is located.
       - name: country
         description: Country where the office is located.
+      - name: postal_code
+        description: Postal code for the office address.
       - name: territory
         description: Sales territory assigned to the office.
+      - name: _sync_date
+        description: Timestamp when the record was last synchronized from the source system.

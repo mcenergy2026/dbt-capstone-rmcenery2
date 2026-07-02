@@ -2,21 +2,24 @@ version: 2
 
 models:
   - name: stg_classic_models__orders
-    description: Staging model for order-level records from the classic_models orders source.
+    description: Order header staging model with order lifecycle dates, status, customer linkage, and source sync metadata from `classic_models.orders`.
     columns:
       - name: order_number
         description: Primary key for each order.
+        data_tests:
+          - unique
+          - not_null
       - name: order_date
         description: Date the order was created.
       - name: required_date
         description: Requested fulfillment date for the order.
       - name: shipped_date
-        description: Date the order shipped.
+        description: Date the order was shipped.
       - name: status
-        description: Current order status.
+        description: Current lifecycle status of the order.
       - name: comments
         description: Free-text comments recorded on the order.
       - name: customer_number
-        description: Foreign key to the customer who placed the order.
+        description: Customer who placed the order.
       - name: _sync_date
-        description: Timestamp indicating when the source record was synchronized.
+        description: Timestamp when the record was last synchronized from the source system.

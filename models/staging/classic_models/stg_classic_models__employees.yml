@@ -2,13 +2,26 @@ version: 2
 
 models:
   - name: stg_classic_models__employees
-    description: Staging model for employee records from the classic_models employees source.
+    description: Employee staging model with employee identity, contact, reporting structure, office assignment, and source sync metadata from `classic_models.employees`.
     columns:
       - name: employee_number
         description: Primary key for each employee.
+        data_tests:
+          - unique
+          - not_null
+      - name: last_name
+        description: Employee last name.
+      - name: first_name
+        description: Employee first name.
+      - name: extension
+        description: Employee phone extension.
+      - name: email
+        description: Employee email address.
+      - name: office_code
+        description: Office where the employee is assigned.
       - name: reports_to
         description: Employee number of the manager this employee reports to.
-      - name: office_code
-        description: Office identifier for the employee.
       - name: job_title
         description: Employee job title.
+      - name: _sync_date
+        description: Timestamp when the record was last synchronized from the source system.

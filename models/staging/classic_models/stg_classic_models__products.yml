@@ -2,19 +2,28 @@ version: 2
 
 models:
   - name: stg_classic_models__products
-    description: Staging model for product records from the classic_models products source.
+    description: Product staging model with product attributes, pricing, inventory, and source sync metadata from `classic_models.products`.
     columns:
       - name: product_code
         description: Primary key for each product.
+        data_tests:
+          - unique
+          - not_null
       - name: product_name
         description: Product display name.
       - name: product_line
-        description: Product line category.
+        description: Product line category assigned to the product.
+      - name: product_scale
+        description: Scale or size designation of the product.
       - name: product_vendor
-        description: Vendor for the product.
+        description: Vendor or manufacturer of the product.
+      - name: product_description
+        description: Free-text description of the product.
       - name: quantity_in_stock
-        description: Inventory units currently in stock.
+        description: Number of units currently in inventory.
       - name: buy_price
         description: Unit cost of the product.
       - name: msrp
-        description: Suggested retail price of the product.
+        description: Manufacturer suggested retail price of the product.
+      - name: _sync_date
+        description: Timestamp when the record was last synchronized from the source system.

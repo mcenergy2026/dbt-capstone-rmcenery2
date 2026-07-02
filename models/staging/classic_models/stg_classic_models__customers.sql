@@ -21,7 +21,6 @@ renamed as (
         country,
         sales_rep_employee_number,
         credit_limit,
-        customer_email,
         _sync_date
     from source
 
