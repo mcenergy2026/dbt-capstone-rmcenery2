@@ -1,13 +1,13 @@
-with source as (
+WITH source AS (
 
-    select *
-    from {{ source('classic_models', 'products') }}
+    SELECT *
+    FROM {{ source('classic_models', 'products') }}
 
 ),
 
-renamed as (
+renamed AS (
 
-    select
+    SELECT
         product_code,
         product_name,
         product_line,
@@ -18,9 +18,9 @@ renamed as (
         buy_price,
         msrp,
         _sync_date
-    from source
+    FROM source
 
 )
 
-select *
-from renamed
+SELECT *
+FROM renamed

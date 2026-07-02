@@ -1,13 +1,13 @@
-with source as (
+WITH source AS (
 
-    select *
-    from {{ source('classic_models', 'customers') }}
+    SELECT *
+    FROM {{ source('classic_models', 'customers') }}
 
 ),
 
-renamed as (
+renamed AS (
 
-    select
+    SELECT
         customer_number,
         customer_name,
         customer_last_name,
@@ -22,9 +22,9 @@ renamed as (
         sales_rep_employee_number,
         credit_limit,
         _sync_date
-    from source
+    FROM source
 
 )
 
-select *
-from renamed
+SELECT *
+FROM renamed

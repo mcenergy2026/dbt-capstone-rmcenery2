@@ -16,5 +16,3 @@ models:
         description: Line number within the order.
       - name: _sync_date
         description: Timestamp when the record was last synchronized from the source system.
-      - name: line_amount
-        description: Extended line amount calculated as `quantity_ordered * price_each`.

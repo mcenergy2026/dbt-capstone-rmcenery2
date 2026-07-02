@@ -1,13 +1,13 @@
-with source as (
+WITH source AS (
 
-    select *
-    from {{ source('classic_models', 'offices') }}
+    SELECT *
+    FROM {{ source('classic_models', 'offices') }}
 
 ),
 
-renamed as (
+renamed AS (
 
-    select
+    SELECT
         office_code,
         city,
         phone,
@@ -18,9 +18,9 @@ renamed as (
         postal_code,
         territory,
         _sync_date
-    from source
+    FROM source
 
 )
 
-select *
-from renamed
+SELECT *
+FROM renamed

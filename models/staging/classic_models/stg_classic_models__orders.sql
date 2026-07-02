@@ -1,9 +1,9 @@
-with source as (
+WITH source AS (
 
-    select *
-    from {{ source('classic_models', 'orders') }}
+    SELECT *
+    FROM {{ source('classic_models', 'orders') }}
 
 )
 
-select *
-from source
+SELECT *
+FROM source
