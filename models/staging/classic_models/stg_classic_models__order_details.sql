@@ -13,6 +13,7 @@ renamed AS (
         quantity_ordered,
         price_each,
         order_line_number,
+        quantity_ordered * price_each AS line_amount,
         _sync_date
     FROM source
 

@@ -14,5 +14,7 @@ models:
         description: Unit price charged for the line item.
       - name: order_line_number
         description: Line number within the order.
+      - name: line_amount
+        description: Extended line amount calculated as `quantity_ordered * price_each`.
       - name: _sync_date
         description: Timestamp when the record was last synchronized from the source system.

@@ -26,7 +26,7 @@ order_line_rollup AS (
         COUNT(*) AS line_count,
         COUNT(DISTINCT product_code) AS distinct_product_count,
         SUM(quantity_ordered) AS total_quantity_ordered,
-        SUM(quantity_ordered * price_each) AS order_amount
+        SUM(line_amount) AS order_amount
     FROM order_details
     GROUP BY 1
 
