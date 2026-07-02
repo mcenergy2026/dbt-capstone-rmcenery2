@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: stg_classic_models__returns
+    description: Staging model for return records from the classic_models returns source.
+    columns:
+      - name: return_id
+        description: Primary key for each return event.
+      - name: order_number
+        description: Order associated with the return.
+      - name: product_code
+        description: Product being returned.
+      - name: quantity_returned
+        description: Quantity returned.
+      - name: return_date
+        description: Date the return was initiated or recorded.
+      - name: refund_amount
+        description: Refund amount associated with the return.
+      - name: status
+        description: Current return status.

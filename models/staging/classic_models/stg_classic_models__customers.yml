@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_classic_models__customers
+    description: Staging model for customer records from the classic_models customers source.
+    columns:
+      - name: customer_number
+        description: Primary key for each customer.
+      - name: customer_name
+        description: Full customer account name.
+      - name: last_name
+        description: Customer contact last name.
+      - name: first_name
+        description: Customer contact first name.
+      - name: sales_rep_employee_number
+        description: Employee number for the assigned sales representative.
+      - name: customer_email
+        description: Customer contact email address.

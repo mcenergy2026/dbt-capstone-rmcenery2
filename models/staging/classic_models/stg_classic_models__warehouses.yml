@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_classic_models__warehouses
+    description: Staging model for warehouse records from the classic_models warehouses source.
+    columns:
+      - name: warehouse_code
+        description: Primary key for each warehouse.
+      - name: warehouse_name
+        description: Warehouse display name.
+      - name: city
+        description: City where the warehouse is located.
+      - name: country
+        description: Country where the warehouse is located.
+      - name: capacity
+        description: Nominal storage capacity for the warehouse.

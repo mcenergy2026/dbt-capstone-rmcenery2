@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_classic_models__shipments
+    description: Staging model for shipment records from the classic_models shipments source.
+    columns:
+      - name: shipment_id
+        description: Primary key for each shipment record.
+      - name: order_number
+        description: Order associated with the shipment.
+      - name: warehouse_code
+        description: Warehouse fulfilling the shipment.
+      - name: tracking_number
+        description: Carrier tracking identifier.
+      - name: ship_date
+        description: Date the shipment was sent.
+      - name: shipping_cost
+        description: Cost incurred to ship the order.

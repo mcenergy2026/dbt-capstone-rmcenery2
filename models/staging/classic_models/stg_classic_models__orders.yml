@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: stg_classic_models__orders
+    description: Staging model for order-level records from the classic_models orders source.
+    columns:
+      - name: order_number
+        description: Primary key for each order.
+      - name: order_date
+        description: Date the order was created.
+      - name: required_date
+        description: Requested fulfillment date for the order.
+      - name: shipped_date
+        description: Date the order shipped.
+      - name: status
+        description: Current order status.
+      - name: comments
+        description: Free-text comments recorded on the order.
+      - name: customer_number
+        description: Foreign key to the customer who placed the order.
+      - name: _sync_date
+        description: Timestamp indicating when the source record was synchronized.

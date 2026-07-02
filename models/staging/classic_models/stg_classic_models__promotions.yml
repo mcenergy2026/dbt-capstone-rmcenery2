@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_classic_models__promotions
+    description: Staging model for promotion records from the classic_models promotions source.
+    columns:
+      - name: promotion_id
+        description: Primary key for each promotion.
+      - name: product_line
+        description: Product line the promotion applies to when scoped to a specific line.
+      - name: promotion_name
+        description: Promotion display name.
+      - name: discount_pct
+        description: Percentage discount applied by the promotion.
+      - name: start_date
+        description: Promotion start date.
+      - name: end_date
+        description: Promotion end date.

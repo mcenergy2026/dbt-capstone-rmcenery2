@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_classic_models__inventory_transactions
+    description: Staging model for inventory transaction records from the classic_models inventory_transactions source.
+    columns:
+      - name: transaction_id
+        description: Primary key for each inventory transaction.
+      - name: product_code
+        description: Product affected by the inventory transaction.
+      - name: warehouse_code
+        description: Warehouse where the inventory transaction occurred.
+      - name: transaction_type
+        description: Type of inventory movement recorded.
+      - name: quantity
+        description: Quantity moved in the transaction.
+      - name: transaction_date
+        description: Date of the inventory transaction.

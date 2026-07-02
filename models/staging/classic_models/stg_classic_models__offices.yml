@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_classic_models__offices
+    description: Staging model for office records from the classic_models offices source.
+    columns:
+      - name: office_code
+        description: Primary key for each office.
+      - name: city
+        description: City where the office is located.
+      - name: country
+        description: Country where the office is located.
+      - name: territory
+        description: Sales territory assigned to the office.

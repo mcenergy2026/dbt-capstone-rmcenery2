@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_classic_models__payments
+    description: Staging model for payment records from the classic_models payments source.
+    columns:
+      - name: customer_number
+        description: Foreign key to the customer who made the payment.
+      - name: check_number
+        description: Check reference for the payment.
+      - name: payment_date
+        description: Date the payment was received.
+      - name: amount
+        description: Payment amount.

@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_classic_models__employees
+    description: Staging model for employee records from the classic_models employees source.
+    columns:
+      - name: employee_number
+        description: Primary key for each employee.
+      - name: reports_to
+        description: Employee number of the manager this employee reports to.
+      - name: office_code
+        description: Office identifier for the employee.
+      - name: job_title
+        description: Employee job title.
