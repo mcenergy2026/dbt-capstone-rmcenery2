@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: stg_classic_models__products
+    description: Staging model for product records from the classic_models products source.
+    columns:
+      - name: product_code
+        description: Primary key for each product.
+      - name: product_name
+        description: Product display name.
+      - name: product_line
+        description: Product line category.
+      - name: product_vendor
+        description: Vendor for the product.
+      - name: quantity_in_stock
+        description: Inventory units currently in stock.
+      - name: buy_price
+        description: Unit cost of the product.
+      - name: msrp
+        description: Suggested retail price of the product.

@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_classic_models__order_details
+    description: Staging model for order line records from the classic_models order_details source.
+    columns:
+      - name: order_number
+        description: Foreign key to the order header.
+      - name: order_line_number
+        description: Line number within the order.
+      - name: product_code
+        description: Product code for the ordered item.
+      - name: quantity_ordered
+        description: Quantity ordered on the line.
+      - name: price_each
+        description: Unit price charged for the line item.
+      - name: line_amount
+        description: Extended line amount calculated as quantity ordered multiplied by unit price.

@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_classic_models__product_lines
+    description: Staging model for product line records from the classic_models product_lines source.
+    columns:
+      - name: product_line
+        description: Primary key for each product line.
+      - name: text_description
+        description: Plain text description of the product line.
+      - name: html_description
+        description: HTML-formatted description of the product line.
+      - name: image
+        description: Image or binary reference associated with the product line.
