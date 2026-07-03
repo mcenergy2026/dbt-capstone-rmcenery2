@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: dim_date
+    description: Calendar date dimension built from the reusable daily date spine.
+    columns:
+      - name: date_day
+        description: Primary key for each calendar date.
+        data_tests:
+          - unique
+          - not_null
+      - name: date_year
+        description: Calendar year number.
+      - name: date_quarter
+        description: Calendar quarter number within the year.
+      - name: date_month
+        description: Calendar month number within the year.
+      - name: date_week
+        description: ISO week number within the year.
+      - name: date_day_of_month
+        description: Calendar day number within the month.

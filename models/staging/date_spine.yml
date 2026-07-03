@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: date_spine
+    description: Daily date spine staging model for reusable calendar reporting dimensions.
+    columns:
+      - name: date_day
+        description: Calendar date at day grain.
+        data_tests:
+          - unique
+          - not_null
+      - name: year_number
+        description: Calendar year number.
+      - name: quarter_number
+        description: Calendar quarter number within the year.
+      - name: month_number
+        description: Calendar month number within the year.
+      - name: week_number
+        description: ISO week number within the year.
+      - name: day_of_month
+        description: Calendar day number within the month.
+      - name: day_of_week_number
+        description: ISO day of week number where Monday is 1 and Sunday is 7.
+      - name: day_name
+        description: Full weekday name.
+      - name: month_name
+        description: Full month name.
+      - name: week_start_date
+        description: First date of the calendar week.
+      - name: month_start_date
+        description: First date of the calendar month.
+      - name: quarter_start_date
+        description: First date of the calendar quarter.
+      - name: year_start_date
+        description: First date of the calendar year.
