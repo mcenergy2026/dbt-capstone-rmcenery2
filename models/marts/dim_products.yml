@@ -1,8 +1,8 @@
 version: 2
 
 models:
-  - name: stg_classic_models__products
-    description: Product staging model with product attributes, pricing, inventory, and source sync metadata from `classic_models.products`.
+  - name: dim_products
+    description: Product dimension model for downstream reporting and analytics.
     columns:
       - name: product_code
         description: Primary key for each product.
@@ -26,4 +26,4 @@ models:
       - name: msrp
         description: Manufacturer suggested retail price of the product.
       - name: _sync_date
-        description: Timestamp when the record was last synchronized from the source system.
+        description: Timestamp when the source product record was last synchronized from the source system.

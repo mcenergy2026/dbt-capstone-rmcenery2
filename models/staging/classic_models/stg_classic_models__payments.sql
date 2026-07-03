@@ -1,21 +1,21 @@
-with source as (
+WITH source AS (
 
-    select *
-    from {{ source('classic_models', 'payments') }}
+    SELECT *
+    FROM {{ source('classic_models', 'payments') }}
 
 ),
 
-renamed as (
+renamed AS (
 
-    select
+    SELECT
         customer_number,
         check_number,
         payment_date,
         amount,
         _sync_date
-    from source
+    FROM source
 
 )
 
-select *
-from renamed
+SELECT *
+FROM renamed

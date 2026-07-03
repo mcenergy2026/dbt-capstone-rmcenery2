@@ -1,13 +1,13 @@
-with source as (
+WITH source AS (
 
-    select *
-    from {{ source('classic_models', 'employees') }}
+    SELECT *
+    FROM {{ source('classic_models', 'employees') }}
 
 ),
 
-renamed as (
+renamed AS (
 
-    select
+    SELECT
         employee_number,
         last_name,
         first_name,
@@ -17,9 +17,9 @@ renamed as (
         reports_to,
         job_title,
         _sync_date
-    from source
+    FROM source
 
 )
 
-select *
-from renamed
+SELECT *
+FROM renamed

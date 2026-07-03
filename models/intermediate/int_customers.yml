@@ -1,8 +1,8 @@
 version: 2
 
 models:
-  - name: stg_classic_models__customers
-    description: Customer dimension staging model with cleaned customer identity, contact, geographic, and account limit fields from the `classic_models.customers` source.
+  - name: int_customers
+    description: Intermediate customer model that standardizes customer attributes for downstream dimensions and facts.
     columns:
       - name: customer_number
         description: Primary key for each customer.
@@ -11,10 +11,10 @@ models:
           - not_null
       - name: customer_name
         description: Customer account name.
-      - name: customer_last_name
-        description: Last name of the primary customer contact.
       - name: customer_first_name
         description: First name of the primary customer contact.
+      - name: customer_last_name
+        description: Last name of the primary customer contact.
       - name: phone
         description: Primary phone number for the customer account.
       - name: address_line1
@@ -34,4 +34,4 @@ models:
       - name: credit_limit
         description: Credit limit assigned to the customer account.
       - name: _sync_date
-        description: Timestamp when the record was last synchronized into the source system.
+        description: Timestamp when the source customer record was last synchronized from the source system.

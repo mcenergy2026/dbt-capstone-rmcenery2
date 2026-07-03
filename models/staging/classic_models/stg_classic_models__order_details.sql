@@ -1,23 +1,23 @@
-with source as (
+WITH source AS (
 
-    select *
-    from {{ source('classic_models', 'order_details') }}
+    SELECT *
+    FROM {{ source('classic_models', 'order_details') }}
 
 ),
 
-renamed as (
+renamed AS (
 
-    select
+    SELECT
         order_number,
         product_code,
         quantity_ordered,
         price_each,
         order_line_number,
-        _sync_date,
-        quantity_ordered * price_each as line_amount
-    from source
+        quantity_ordered * price_each AS line_amount,
+        _sync_date
+    FROM source
 
 )
 
-select *
-from renamed
+SELECT *
+FROM renamed

@@ -2,13 +2,15 @@ version: 2
 
 models:
   - name: stg_classic_models__payments
-    description: Staging model for payment records from the classic_models payments source.
+    description: Payment staging model with customer payment details and source sync metadata from `classic_models.payments`.
     columns:
       - name: customer_number
-        description: Foreign key to the customer who made the payment.
+        description: Customer who made the payment.
       - name: check_number
-        description: Check reference for the payment.
+        description: Payment reference or check identifier.
       - name: payment_date
         description: Date the payment was received.
       - name: amount
-        description: Payment amount.
+        description: Payment amount received from the customer.
+      - name: _sync_date
+        description: Timestamp when the record was last synchronized from the source system.

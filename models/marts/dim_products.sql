@@ -1,11 +1,11 @@
-WITH source AS (
+WITH stg_products AS (
 
     SELECT *
-    FROM {{ source('classic_models', 'products') }}
+    FROM {{ ref('stg_classic_models__products') }}
 
 ),
 
-renamed AS (
+final AS (
 
     SELECT
         product_code,
@@ -18,9 +18,9 @@ renamed AS (
         buy_price,
         msrp,
         _sync_date
-    FROM source
+    FROM stg_products
 
 )
 
 SELECT *
-FROM renamed
+FROM final

@@ -1,9 +1,24 @@
-with source as (
+WITH source AS (
 
-    select *
-    from {{ source('classic_models', 'orders') }}
+    SELECT *
+    FROM {{ source('classic_models', 'orders') }}
+
+),
+
+renamed AS (
+
+    SELECT
+        order_number,
+        order_date,
+        required_date,
+        shipped_date,
+        status,
+        comments,
+        customer_number,
+        _sync_date
+    FROM source
 
 )
 
-select *
-from source
+SELECT *
+FROM renamed

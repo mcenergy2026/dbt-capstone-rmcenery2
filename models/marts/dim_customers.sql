@@ -1,17 +1,17 @@
-WITH source AS (
+WITH int_customers AS (
 
     SELECT *
-    FROM {{ source('classic_models', 'customers') }}
+    FROM {{ ref('int_customers') }}
 
 ),
 
-renamed AS (
+final AS (
 
     SELECT
-        customer_number,
+        customer_number AS customer_pk,
         customer_name,
-        customer_last_name,
         customer_first_name,
+        customer_last_name,
         phone,
         address_line1,
         address_line2,
@@ -22,9 +22,9 @@ renamed AS (
         sales_rep_employee_number,
         credit_limit,
         _sync_date
-    FROM source
+    FROM int_customers
 
 )
 
 SELECT *
-FROM renamed
+FROM final
