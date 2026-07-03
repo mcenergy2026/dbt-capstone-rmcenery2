@@ -1,0 +1,53 @@
+version: 2
+
+models:
+  - name: fct_orders
+    description: Order fact model at one row per order for downstream reporting and analytics.
+    columns:
+      - name: order_number
+        description: Primary key for each order.
+        data_tests:
+          - unique
+          - not_null
+      - name: order_date
+        description: Date the order was created.
+      - name: required_date
+        description: Requested fulfillment date for the order.
+      - name: shipped_date
+        description: Date the order was shipped.
+      - name: status
+        description: Current lifecycle status of the order.
+      - name: comments
+        description: Free-text comments recorded on the order.
+      - name: customer_number
+        description: Customer who placed the order.
+      - name: customer_name
+        description: Customer account name.
+      - name: customer_first_name
+        description: First name of the primary customer contact.
+      - name: customer_last_name
+        description: Last name of the primary customer contact.
+      - name: customer_phone
+        description: Primary phone number for the customer account.
+      - name: customer_city
+        description: City of the customer billing address.
+      - name: customer_state
+        description: State or province of the customer billing address.
+      - name: customer_postal_code
+        description: Postal code of the customer billing address.
+      - name: customer_country
+        description: Country of the customer billing address.
+      - name: sales_rep_employee_number
+        description: Employee number of the sales representative assigned to the customer.
+      - name: credit_limit
+        description: Credit limit assigned to the customer account.
+      - name: line_count
+        description: Number of order lines on the order.
+      - name: distinct_product_count
+        description: Number of distinct products included on the order.
+      - name: total_quantity_ordered
+        description: Total units ordered across all order lines.
+      - name: order_amount
+        description: Total order amount across all order lines.
+      - name: _sync_date
+        description: Timestamp when the source order record was last synchronized from the source system.

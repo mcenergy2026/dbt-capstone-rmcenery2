@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: dim_products
+    description: Product dimension model for downstream reporting and analytics.
+    columns:
+      - name: product_code
+        description: Primary key for each product.
+        data_tests:
+          - unique
+          - not_null
+      - name: product_name
+        description: Product display name.
+      - name: product_line
+        description: Product line category assigned to the product.
+      - name: product_scale
+        description: Scale or size designation of the product.
+      - name: product_vendor
+        description: Vendor or manufacturer of the product.
+      - name: product_description
+        description: Free-text description of the product.
+      - name: quantity_in_stock
+        description: Number of units currently in inventory.
+      - name: buy_price
+        description: Unit cost of the product.
+      - name: msrp
+        description: Manufacturer suggested retail price of the product.
+      - name: _sync_date
+        description: Timestamp when the source product record was last synchronized from the source system.

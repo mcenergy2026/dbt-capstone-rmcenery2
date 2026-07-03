@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: Customer dimension model for downstream reporting and analytics.
+    columns:
+      - name: customer_number
+        description: Primary key for each customer.
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_name
+        description: Customer account name.
+      - name: customer_first_name
+        description: First name of the primary customer contact.
+      - name: customer_last_name
+        description: Last name of the primary customer contact.
+      - name: phone
+        description: Primary phone number for the customer account.
+      - name: address_line1
+        description: First line of the customer street address.
+      - name: address_line2
+        description: Second line of the customer street address.
+      - name: city
+        description: City of the customer billing address.
+      - name: state
+        description: State or province of the customer billing address.
+      - name: postal_code
+        description: Postal code of the customer billing address.
+      - name: country
+        description: Country of the customer billing address.
+      - name: sales_rep_employee_number
+        description: Employee number of the sales representative assigned to the customer.
+      - name: credit_limit
+        description: Credit limit assigned to the customer account.
+      - name: _sync_date
+        description: Timestamp when the source customer record was last synchronized from the source system.
