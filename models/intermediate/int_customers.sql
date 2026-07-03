@@ -1,14 +1,14 @@
-WITH int_customers AS (
+WITH stg_customers AS (
 
     SELECT *
-    FROM {{ ref('int_customers') }}
+    FROM {{ ref('stg_classic_models__customers') }}
 
 ),
 
 final AS (
 
     SELECT
-        customer_number AS customer_pk,
+        customer_number,
         customer_name,
         customer_first_name,
         customer_last_name,
@@ -22,7 +22,7 @@ final AS (
         sales_rep_employee_number,
         credit_limit,
         _sync_date
-    FROM int_customers
+    FROM stg_customers
 
 )
 

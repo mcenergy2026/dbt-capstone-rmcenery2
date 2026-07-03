@@ -1,10 +1,10 @@
 version: 2
 
 models:
-  - name: dim_customers
-    description: Customer dimension model for downstream reporting and analytics.
+  - name: int_customers
+    description: Intermediate customer model that standardizes customer attributes for downstream dimensions and facts.
     columns:
-      - name: customer_pk
+      - name: customer_number
         description: Primary key for each customer.
         data_tests:
           - unique
