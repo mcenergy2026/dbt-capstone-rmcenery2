@@ -15,6 +15,7 @@ final AS (
         year(cast(date_day as date)) AS year_number,
         quarter(cast(date_day as date)) AS quarter_number,
         month(cast(date_day as date)) AS month_number,
+        weekiso(cast(date_day as date)) AS week_number,
         day(cast(date_day as date)) AS day_of_month,
         dayofweekiso(cast(date_day as date)) AS day_of_week_number,
         to_char(cast(date_day as date), 'Day') AS day_name,

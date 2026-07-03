@@ -15,6 +15,8 @@ models:
         description: Calendar quarter number within the year.
       - name: month_number
         description: Calendar month number within the year.
+      - name: week_number
+        description: ISO week number within the year.
       - name: day_of_month
         description: Calendar day number within the month.
       - name: day_of_week_number
