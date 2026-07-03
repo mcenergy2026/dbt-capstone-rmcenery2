@@ -1,7 +1,7 @@
-WITH int_order_details AS (
+WITH int_orders AS (
 
     SELECT *
-    FROM {{ ref('int_order_details') }}
+    FROM {{ ref('int_orders') }}
 
 ),
 
@@ -9,8 +9,6 @@ final AS (
 
     SELECT
         order_number,
-        order_line_number,
-        product_code,
         order_date,
         required_date,
         shipped_date,
@@ -26,15 +24,13 @@ final AS (
         customer_postal_code,
         customer_country,
         sales_rep_employee_number,
-        product_name,
-        product_line,
-        product_scale,
-        product_vendor,
-        quantity_ordered,
-        price_each,
-        line_amount,
+        credit_limit,
+        line_count,
+        distinct_product_count,
+        total_quantity_ordered,
+        order_amount,
         _sync_date
-    FROM int_order_details
+    FROM int_orders
 
 )
 
