@@ -56,12 +56,12 @@ final AS (
         od.line_amount,
         od._sync_date
     FROM order_details AS od
-    LEFT JOIN orders AS o
-        ON od.order_number = o.order_number
-    LEFT JOIN customers AS c
-        ON o.customer_number = c.customer_number
-    LEFT JOIN products AS p
-        ON od.product_code = p.product_code
+        LEFT JOIN orders AS o
+            ON od.order_number = o.order_number
+        LEFT JOIN customers AS c
+            ON o.customer_number = c.customer_number
+        LEFT JOIN products AS p
+            ON od.product_code = p.product_code
 
 )
 

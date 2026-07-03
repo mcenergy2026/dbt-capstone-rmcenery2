@@ -58,10 +58,10 @@ final AS (
         COALESCE(olr.order_amount, 0) AS order_amount,
         o._sync_date
     FROM orders AS o
-    LEFT JOIN order_line_rollup AS olr
-        ON o.order_number = olr.order_number
-    LEFT JOIN customers AS c
-        ON o.customer_number = c.customer_number
+        LEFT JOIN order_line_rollup AS olr
+            ON o.order_number = olr.order_number
+        LEFT JOIN customers AS c
+            ON o.customer_number = c.customer_number
 
 )
 

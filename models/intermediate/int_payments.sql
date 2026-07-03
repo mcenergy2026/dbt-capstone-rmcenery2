@@ -31,8 +31,8 @@ final AS (
         c.credit_limit,
         p._sync_date
     FROM payments AS p
-    LEFT JOIN customers AS c
-        ON p.customer_number = c.customer_number
+        LEFT JOIN customers AS c
+            ON p.customer_number = c.customer_number
 
 )
 

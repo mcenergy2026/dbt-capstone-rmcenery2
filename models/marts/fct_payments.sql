@@ -8,23 +8,11 @@ WITH int_payments AS (
 final AS (
 
     SELECT
-        customer_number,
+        customer_number AS CUSTOMER_PK,
         check_number,
         payment_date,
-        amount,
-        customer_name,
-        customer_first_name,
-        customer_last_name,
-        customer_phone,
-        customer_city,
-        customer_state,
-        customer_postal_code,
-        customer_country,
-        sales_rep_employee_number,
-        credit_limit,
-        _sync_date
+        amount
     FROM int_payments
-
 )
 
 SELECT *
