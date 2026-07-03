@@ -8,7 +8,7 @@ WITH int_payments AS (
 final AS (
 
     SELECT
-        customer_number AS CUSTOMER_PK,
+        customer_number AS customer_pk,
         check_number,
         payment_date,
         amount
