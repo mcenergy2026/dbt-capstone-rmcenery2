@@ -1,24 +1,20 @@
-WITH stg_products AS (
+WITH int_products AS (
 
     SELECT *
-    FROM {{ ref('stg_classic_models__products') }}
+    FROM {{ ref('int_products') }}
 
 ),
 
 final AS (
 
     SELECT
-        product_code,
+        product_code AS product_pk,
         product_name,
         product_line,
         product_scale,
         product_vendor,
-        product_description,
-        quantity_in_stock,
-        buy_price,
-        msrp,
-        _sync_date
-    FROM stg_products
+        product_description
+    FROM int_products
 
 )
 
