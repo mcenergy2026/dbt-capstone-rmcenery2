@@ -2,13 +2,21 @@ version: 2
 
 models:
   - name: fct_orders
-    description: Order fact model at one row per order for downstream reporting and analytics.
+    description: Order line fact model at one row per order line for downstream reporting and analytics.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - order_number
+              - order_line_number
+              - product_code
     columns:
       - name: order_number
-        description: Primary key for each order.
-        data_tests:
-          - unique
-          - not_null
+        description: Order header this line belongs to.
+      - name: order_line_number
+        description: Line number within the order.
+      - name: product_code
+        description: Product code for the ordered item.
       - name: order_date
         description: Date the order was created.
       - name: required_date
@@ -39,15 +47,19 @@ models:
         description: Country of the customer billing address.
       - name: sales_rep_employee_number
         description: Employee number of the sales representative assigned to the customer.
-      - name: credit_limit
-        description: Credit limit assigned to the customer account.
-      - name: line_count
-        description: Number of order lines on the order.
-      - name: distinct_product_count
-        description: Number of distinct products included on the order.
-      - name: total_quantity_ordered
-        description: Total units ordered across all order lines.
-      - name: order_amount
-        description: Total order amount across all order lines.
+      - name: product_name
+        description: Product display name.
+      - name: product_line
+        description: Product line category assigned to the product.
+      - name: product_scale
+        description: Scale or size designation of the product.
+      - name: product_vendor
+        description: Vendor or manufacturer of the product.
+      - name: quantity_ordered
+        description: Quantity ordered on the line.
+      - name: price_each
+        description: Unit price charged for the line item.
+      - name: line_amount
+        description: Extended line amount for the order line.
       - name: _sync_date
-        description: Timestamp when the source order record was last synchronized from the source system.
+        description: Timestamp when the source order detail record was last synchronized from the source system.

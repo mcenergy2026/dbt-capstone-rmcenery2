@@ -1,10 +1,10 @@
 version: 2
 
 models:
-  - name: dim_products
-    description: Product dimension model for downstream reporting and analytics.
+  - name: int_products
+    description: Intermediate product model that standardizes product attributes for downstream dimensions and facts.
     columns:
-      - name: product_pk
+      - name: product_code
         description: Primary key for each product.
         data_tests:
           - unique
@@ -19,3 +19,11 @@ models:
         description: Vendor or manufacturer of the product.
       - name: product_description
         description: Free-text description of the product.
+      - name: quantity_in_stock
+        description: Number of units currently in inventory.
+      - name: buy_price
+        description: Unit cost of the product.
+      - name: msrp
+        description: Manufacturer suggested retail price of the product.
+      - name: _sync_date
+        description: Timestamp when the source product record was last synchronized from the source system.

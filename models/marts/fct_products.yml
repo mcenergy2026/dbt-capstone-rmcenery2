@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: fct_products
+    description: Product fact model at one row per product with inventory and pricing measures for downstream reporting and analytics.
+    columns:
+      - name: product_pk
+        description: Primary key for each product.
+        data_tests:
+          - unique
+          - not_null
+      - name: quantity_in_stock
+        description: Number of units currently in inventory.
+      - name: buy_price
+        description: Unit cost of the product.
+      - name: msrp
+        description: Manufacturer suggested retail price of the product.

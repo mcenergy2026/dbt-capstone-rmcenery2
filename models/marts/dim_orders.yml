@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: dim_orders
+    description: Order dimension model at one row per order for downstream reporting and analytics.
+    columns:
+      - name: order_pk
+        description: Primary key for each order.
+        data_tests:
+          - unique
+          - not_null
+      - name: required_date
+        description: Requested fulfillment date for the order.
+      - name: shipped_date
+        description: Date the order was shipped.
+      - name: status
+        description: Current lifecycle status of the order.
+      - name: comments
+        description: Free-text comments recorded on the order.
+     

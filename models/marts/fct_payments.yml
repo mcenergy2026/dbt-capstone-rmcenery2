@@ -7,36 +7,14 @@ models:
       - dbt_utils.unique_combination_of_columns:
           arguments:
             combination_of_columns:
-              - customer_number
+              - CUSTOMER_PK
               - check_number
     columns:
-      - name: customer_number
-        description: Customer who made the payment.
+      - name: CUSTOMER_PK
+        description: Customer primary key associated with the payment.
       - name: check_number
         description: Payment reference or check identifier.
       - name: payment_date
         description: Date the payment was received.
       - name: amount
         description: Payment amount received from the customer.
-      - name: customer_name
-        description: Customer account name.
-      - name: customer_first_name
-        description: First name of the primary customer contact.
-      - name: customer_last_name
-        description: Last name of the primary customer contact.
-      - name: customer_phone
-        description: Primary phone number for the customer account.
-      - name: customer_city
-        description: City of the customer billing address.
-      - name: customer_state
-        description: State or province of the customer billing address.
-      - name: customer_postal_code
-        description: Postal code of the customer billing address.
-      - name: customer_country
-        description: Country of the customer billing address.
-      - name: sales_rep_employee_number
-        description: Employee number of the sales representative assigned to the customer.
-      - name: credit_limit
-        description: Credit limit assigned to the customer account.
-      - name: _sync_date
-        description: Timestamp when the source payment record was last synchronized from the source system.
