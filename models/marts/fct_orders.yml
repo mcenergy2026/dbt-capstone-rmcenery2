@@ -3,6 +3,12 @@ version: 2
 models:
   - name: fct_orders
     description: Order line fact model with one row per order line for downstream reporting and analytics.
+    config:
+      contract:
+        enforced: true
+    semantic_model:
+      enabled: true
+    agg_time_dimension: order_date
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           arguments:
@@ -10,35 +16,124 @@ models:
               - order_pk
               - order_line_number
               - product_pk
+    derived_semantics:
+      entities:
+        - name: order_line
+          type: primary
+          expr: concat(order_pk, '-', order_line_number, '-', product_pk)
     columns:
       - name: order_pk
         description: Primary key of the order header associated with the line item.
+        data_type: number
+        constraints:
+          - type: not_null
+        entity:
+          type: foreign
+          name: order_header
         data_tests:
           - not_null
 
       - name: product_pk
         description: Primary key of the product ordered on the line item.
+        data_type: text
+        constraints:
+          - type: not_null
+        entity:
+          type: foreign
+          name: product
         data_tests:
           - not_null
 
       - name: customer_pk
         description: Primary key of the customer who placed the order.
+        data_type: number
+        constraints:
+          - type: not_null
+        entity:
+          type: foreign
+          name: customer
         data_tests:
           - not_null
 
+      - name: order_date
+        description: Date the order was created.
+        data_type: date
+        granularity: day
+        dimension:
+          type: time
+
       - name: order_line_number
         description: Line number within the order.
+        data_type: number
+        constraints:
+          - type: not_null
         data_tests:
           - not_null
 
       - name: product_code
         description: Natural product code for the ordered item.
+        data_type: text
+        dimension:
+          type: categorical
 
       - name: quantity_ordered
         description: Quantity ordered on the line item.
+        data_type: number
 
       - name: price_each
         description: Unit price charged for the line item.
+        data_type: float
 
       - name: line_amount
         description: Extended line amount for the order line.
+        data_type: float
+
+    metrics:
+      - name: order_line_count
+        description: Count of order lines in fct_orders.
+        label: Order Line Count
+        type: simple
+        agg: count
+        expr: 1
+
+      - name: order_count
+        description: Count of distinct orders represented in fct_orders.
+        label: Order Count
+        type: simple
+        agg: count_distinct
+        expr: order_pk
+
+      - name: customer_count
+        description: Count of distinct customers with order lines.
+        label: Customer Count
+        type: simple
+        agg: count_distinct
+        expr: customer_pk
+
+      - name: total_quantity_ordered
+        description: Total units ordered across all order lines.
+        label: Total Quantity Ordered
+        type: simple
+        agg: sum
+        expr: quantity_ordered
+
+      - name: total_line_amount
+        description: Total revenue represented by order line amounts.
+        label: Total Line Amount
+        type: simple
+        agg: sum
+        expr: line_amount
+
+exposures:
+  - name: orders_reporting
+    label: Orders Reporting
+    type: dashboard
+    maturity: medium
+    description: >
+      Downstream reporting exposure for order line analysis, revenue tracking,
+      and product performance reporting powered by fct_orders.
+    depends_on:
+      - ref('fct_orders')
+    owner:
+      name: Analytics Engineering
+      email: analytics@example.com

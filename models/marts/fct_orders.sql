@@ -11,6 +11,7 @@ final AS (
         order_number AS order_pk,
         product_code AS product_pk,
         customer_number AS customer_pk,
+        order_date,
         order_line_number,
         product_code,
         quantity_ordered,
