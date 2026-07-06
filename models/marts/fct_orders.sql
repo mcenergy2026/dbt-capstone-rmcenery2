@@ -8,13 +8,13 @@ WITH int_order_details AS (
 final AS (
 
     SELECT
-        order_number AS order_pk,
+        cast(order_number AS number(38,0)) AS order_pk,
         product_code AS product_pk,
-        customer_number AS customer_pk,
+        cast(customer_number AS number(38,0)) AS customer_pk,
         order_date,
-        order_line_number,
+        cast(order_line_number AS number(38,0)) AS order_line_number,
         product_code,
-        quantity_ordered,
+        cast(quantity_ordered AS number(38,0)) AS quantity_ordered,
         price_each,
         line_amount
     FROM int_order_details
