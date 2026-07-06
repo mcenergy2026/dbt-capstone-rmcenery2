@@ -2,64 +2,43 @@ version: 2
 
 models:
   - name: fct_orders
-    description: Order line fact model at one row per order line for downstream reporting and analytics.
+    description: Order line fact model with one row per order line for downstream reporting and analytics.
     data_tests:
       - dbt_utils.unique_combination_of_columns:
           arguments:
             combination_of_columns:
-              - order_number
+              - order_pk
               - order_line_number
-              - product_code
+              - product_pk
     columns:
-      - name: order_number
-        description: Order header this line belongs to.
+      - name: order_pk
+        description: Primary key of the order header associated with the line item.
+        data_tests:
+          - not_null
+
+      - name: product_pk
+        description: Primary key of the product ordered on the line item.
+        data_tests:
+          - not_null
+
+      - name: customer_pk
+        description: Primary key of the customer who placed the order.
+        data_tests:
+          - not_null
+
       - name: order_line_number
         description: Line number within the order.
+        data_tests:
+          - not_null
+
       - name: product_code
-        description: Product code for the ordered item.
-      - name: order_date
-        description: Date the order was created.
-      - name: required_date
-        description: Requested fulfillment date for the order.
-      - name: shipped_date
-        description: Date the order was shipped.
-      - name: status
-        description: Current lifecycle status of the order.
-      - name: comments
-        description: Free-text comments recorded on the order.
-      - name: customer_number
-        description: Customer who placed the order.
-      - name: customer_name
-        description: Customer account name.
-      - name: customer_first_name
-        description: First name of the primary customer contact.
-      - name: customer_last_name
-        description: Last name of the primary customer contact.
-      - name: customer_phone
-        description: Primary phone number for the customer account.
-      - name: customer_city
-        description: City of the customer billing address.
-      - name: customer_state
-        description: State or province of the customer billing address.
-      - name: customer_postal_code
-        description: Postal code of the customer billing address.
-      - name: customer_country
-        description: Country of the customer billing address.
-      - name: sales_rep_employee_number
-        description: Employee number of the sales representative assigned to the customer.
-      - name: product_name
-        description: Product display name.
-      - name: product_line
-        description: Product line category assigned to the product.
-      - name: product_scale
-        description: Scale or size designation of the product.
-      - name: product_vendor
-        description: Vendor or manufacturer of the product.
+        description: Natural product code for the ordered item.
+
       - name: quantity_ordered
-        description: Quantity ordered on the line.
+        description: Quantity ordered on the line item.
+
       - name: price_each
         description: Unit price charged for the line item.
+
       - name: line_amount
         description: Extended line amount for the order line.
-      - name: _sync_date
-        description: Timestamp when the source order detail record was last synchronized from the source system.
