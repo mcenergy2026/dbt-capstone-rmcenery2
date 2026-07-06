@@ -4,6 +4,7 @@ models:
   - name: fct_orders
     description: Order line fact model with one row per order line for downstream reporting and analytics.
     config:
+      materialized: table
       contract:
         enforced: true
     semantic_model:
@@ -24,7 +25,7 @@ models:
     columns:
       - name: order_pk
         description: Primary key of the order header associated with the line item.
-        data_type: number
+        data_type: number(38,0)
         constraints:
           - type: not_null
         entity:
@@ -46,7 +47,7 @@ models:
 
       - name: customer_pk
         description: Primary key of the customer who placed the order.
-        data_type: number
+        data_type: number(38,0)
         constraints:
           - type: not_null
         entity:
@@ -64,7 +65,7 @@ models:
 
       - name: order_line_number
         description: Line number within the order.
-        data_type: number
+        data_type: number(38,0)
         constraints:
           - type: not_null
         data_tests:
@@ -78,7 +79,7 @@ models:
 
       - name: quantity_ordered
         description: Quantity ordered on the line item.
-        data_type: number
+        data_type: number(38,0)
 
       - name: price_each
         description: Unit price charged for the line item.
