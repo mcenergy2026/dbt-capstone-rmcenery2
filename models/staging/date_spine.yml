@@ -3,9 +3,12 @@ version: 2
 models:
   - name: date_spine
     description: Daily date spine staging model for reusable calendar reporting dimensions.
+    time_spine:
+      standard_granularity_column: date_day
     columns:
       - name: date_day
         description: Calendar date at day grain.
+        granularity: day
         data_tests:
           - unique
           - not_null
